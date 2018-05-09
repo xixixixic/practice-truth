@@ -1,7 +1,7 @@
 {
   "name": "practice-truth",
   "version": "0.0.1",
-  "description": "some components for Vue whitch daily development accumurated ",
+  "description": "Practice is the sole criterion for testing truth",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --mode development --inline --progress --config webpack.config.js",
@@ -9,25 +9,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/noahlam/nui.git"
+    "url": "https://github.com/noahlam/practice-truth.git"
   },
-  "keywords": [
-    "vue",
-    "js",
-    "nui",
-    "component"
-  ],
   "author": "noah",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/noahlam/nui/issues"
+    "url": "https://github.com/noahlam/practice-truth.git/issues"
   },
-  "homepage": "https://github.com/noahlam/nui#readme",
+  "homepage": "https://github.com/noahlam/practice-truth.git#readme",
   "dependencies": {
     "vue": "*"
   },
   "devDependencies": {
     "babel-loader":"^7.1.4",
+    "babel-core": "^6.26.3",
+    "babel-types": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "vue-loader":"^15.0.5",
     "style-loader":"0.21.0",
     "css-loader":"*",
