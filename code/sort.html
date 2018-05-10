@@ -1,0 +1,57 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>各种排序算法</title>
+</head>
+<body>
+
+</body>
+
+<script>
+  // http://www.cnblogs.com/eniac12/p/5329396.html
+  // var arr = [4,7,2,9,5,3,0,8,1,6]
+  var arr = [4,435,7,2,53,68,9,50,3,0,8,1,6,5,65,29,67,60,31]
+  function bubble (arr) {
+    let len = arr.length
+    for(let i = 0 ; i < len ; i++) {
+      for(let j = 0; j < len - 1 - i; j++){
+        if(arr[j] > arr[j + 1] ) {
+          let temp = arr[j]
+          arr[j] = arr[j + 1]
+          arr[j + 1] = temp
+        }
+      }
+    }
+  }
+  // bubble(arr)
+
+  function cocktail (arr) {
+    let left = 0
+    let right = arr.length - 1
+    while (left < right) {
+      for (let i = 0; i < right; i++){
+        if(arr[i] > arr[i + 1] ) {
+          let temp = arr[i]
+          arr[i] = arr[i + 1]
+          arr[i + 1] = temp
+        }
+      }
+      right--
+      for (let i = right; i > left; i--){
+        if(arr[i] < arr[i - 1] ) {
+          let temp = arr[i]
+          arr[i] = arr[i - 1]
+          arr[i - 1] = temp
+        }
+      }
+      left++
+      console.log(arr)
+    }
+  }
+  cocktail(arr)
+</script>
+
+</html>
