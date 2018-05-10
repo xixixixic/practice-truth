@@ -99,9 +99,9 @@
     </script>
 
 <!-- ![step_1](./img/step_1.png) -->
-<!-- ![step_2](./img/step_2.gif) -->
+ ![step_2](./img/step_2.gif)
 <!-- <img src="./img/step_2.gif" /> -->
-<img src="./img/step_2.gif" />
+<!-- <img src="./img/step_2.gif" /> -->
 
 可以看到,我们已经`不需要`在页面里面`引入`跟`注册`组件,就可以直接使用`this.$toast()`了.
 
