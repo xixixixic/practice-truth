@@ -1,26 +1,26 @@
 ### 一. 先写一个普通的vue组件
 
 文件位置 `/src/toast/toast.vue`
-
-    <template>
-      <div>我是弹窗</div>
-    </template>
-    
+```
+<template>
+  <div>我是弹窗</div>
+</template>
+```
 ### 二. 在我们需要使用的页面引入组件,方便看效果和错误
+```
+<template>
+  <div id="app">
+    <toast></toast>
+  </div>
+</template>
 
-    <template>
-      <div id="app">
-          <toast></toast>
-      </div>
-    </template>
-    
-    <script>
-      import toast from './toast/toast'
-      export default {
-        components: {toast},
-      }
-    </script>
-
+<script>
+  import toast from './toast/toast'
+  export default {
+    components: {toast},
+  }
+</script>
+```
 ![step_1](./img/step_1.png)
 
 ### 三. 实现动态加载组件
@@ -109,10 +109,7 @@ Vue.use(toastRegistry)
 </script>
 ```
 
-<!-- ![step_1](./img/step_1.png) -->
  ![step_2](./img/step_2.gif)
-<!-- <img src="./img/step_2.gif" /> -->
-<!-- <img src="./img/step_2.gif" /> -->
 
 可以看到,我们已经`不需要`在页面里面`引入`跟`注册`组件,就可以直接使用`this.$toast()`了.
 
