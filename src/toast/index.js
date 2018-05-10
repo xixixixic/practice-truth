@@ -15,7 +15,8 @@ function showToast(text, duration = 2000) {
     data() {
       return {
         text:text,
-        show:true
+        showWrap:true,
+        showContent:true
       }
     }
   })
@@ -23,8 +24,10 @@ function showToast(text, duration = 2000) {
   // 把 实例化的 toast.vue 添加到 body 里
   document.body.appendChild(toastDom.$el)
 
-  // 过了 duration 时间后隐藏
-  setTimeout(() => {toastDom.show = false} ,duration)
+  // 提前 250ms 执行淡出动画(因为我们再css里面设置的隐藏动画持续是250ms)
+  setTimeout(() => {toastDom.showContent = false} ,duration - 250)
+  // 过了 duration 时间后隐藏整个组件
+  setTimeout(() => {toastDom.showWrap = false} ,duration)
 }
 
 // 注册为全局组件的函数
