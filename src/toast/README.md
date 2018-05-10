@@ -1,4 +1,6 @@
-效果如图   ![step_3](./img/step_3.gif)
+效果如图
+
+![step_3](https://github.com/noahlam/practice-truth/blob/master/src/toast/img/step_3.gif)
 
 ### 一. 先写一个普通的vue组件
 
@@ -38,7 +40,7 @@
   }
 </script>
 ```
- ![step_1](./img/step_1.png)
+ ![step_1](https://github.com/noahlam/practice-truth/blob/master/src/toast/img/step_1.png)
 
 ### 三. 实现动态加载组件
 
@@ -126,7 +128,7 @@ Vue.use(toastRegistry)
 </script>
 ```
 
-  ![step_2](./img/step_2.gif)
+  ![step_2](https://github.com/noahlam/practice-truth/blob/master/src/toast/img/step_2.gif)
 
 可以看到,我们已经`不需要`在页面里面`引入`跟`注册`组件,就可以直接使用`this.$toast()`了.
 
@@ -204,3 +206,15 @@ function showToast(text, duration = 2000) {
   }
 </style>
 ```
+
+大功告成,一个toast组件初步完成
+
+![step_3](https://github.com/noahlam/practice-truth/blob/master/src/toast/img/step_3.gif)
+
+### 总结
+1. vue.extend 函数可以生成一个 `组件构造器` 可以用这个函数构造出一个 vue组件实例
+2. 可以用 document.body.appendChild() 动态的把组件加到 body里面去
+3. vue.prototype.$toast = showToast  可以在全局注册组件
+4. 显示动画比较简单,隐藏动画必须要在隐藏之前预留足够的动画执行时间
+5. 本文源码地址 [在这里](https://github.com/noahlam/practice-truth/tree/master/src/toast)
+5. 以上都不重要,重要的是 给本文来个[star](https://github.com/noahlam/articles)
