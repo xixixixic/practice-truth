@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-
+    <input type="button" value="显示弹窗" @click="showToast">
   </div>
 </template>
 
@@ -12,9 +12,11 @@
       }
     },
     methods: {
+      showToast () {
+        this.$toast('我是弹出消息')
+      }
     },
     mounted () {
-      this.$toast('123123')
     }
   }
 </script>
