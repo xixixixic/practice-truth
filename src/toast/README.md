@@ -5,6 +5,7 @@
 2. 一般都是跟js交互的  --无需 在`<template>`里面写 `<toast :show="true" text="弹窗消息"></toast>`
 
 今天,我们就抱着上面2个需求点,来实现一个基于vue的toast弹窗组件,下图是最终完成的效果图.
+
 ![step_3](https://github.com/noahlam/practice-truth/blob/master/src/toast/img/step_3.gif)
 
 ### 一. 先写一个普通的vue组件
