@@ -11,14 +11,17 @@
 </body>
 
 <script>
+  // algorithm
   // http://www.cnblogs.com/eniac12/p/5329396.html
+  // var arr = [5, 3, 1, 4]
   // var arr = [4,7,2,9,5,3,0,8,1,6]
-  var arr = [4,435,7,2,53,68,9,50,3,0,8,1,6,5,65,29,67,60,31]
+  var arr = [4, 435, 7, 2, 53, 68, 9, 50, 3, 0, 8, 1, 6, 5, 65, 29, 67, 60, 31]
+
   function bubble (arr) {
     let len = arr.length
-    for(let i = 0 ; i < len ; i++) {
-      for(let j = 0; j < len - 1 - i; j++){
-        if(arr[j] > arr[j + 1] ) {
+    for (let i = 0; i < len; i++) {
+      for (let j = 0; j < len - 1 - i; j++) {
+        if (arr[j] > arr[j + 1]) {
           let temp = arr[j]
           arr[j] = arr[j + 1]
           arr[j + 1] = temp
@@ -26,22 +29,23 @@
       }
     }
   }
+
   // bubble(arr)
 
   function cocktail (arr) {
     let left = 0
     let right = arr.length - 1
     while (left < right) {
-      for (let i = 0; i < right; i++){
-        if(arr[i] > arr[i + 1] ) {
+      for (let i = left; i < right; i++) {
+        if (arr[i] > arr[i + 1]) {
           let temp = arr[i]
           arr[i] = arr[i + 1]
           arr[i + 1] = temp
         }
       }
       right--
-      for (let i = right; i > left; i--){
-        if(arr[i] < arr[i - 1] ) {
+      for (let i = right; i > left; i--) {
+        if (arr[i] < arr[i - 1]) {
           let temp = arr[i]
           arr[i] = arr[i - 1]
           arr[i - 1] = temp
@@ -51,7 +55,71 @@
       console.log(arr)
     }
   }
-  cocktail(arr)
+
+  // cocktail(arr)
+
+  function selection (arr) {
+    let len = arr.length
+    for (let i = 0; i < len; i++) {
+      let min = i
+      for (let j = i; j < len; j++) {
+        if (arr[j] < arr[min]) {
+          min = j
+        }
+      }
+      let temp = arr[i]
+      arr[i] = arr[min]
+      arr[min] = temp
+      console.log(arr)
+    }
+  }
+
+  // selection(arr)
+
+  function insertionWithWhile (arr) {
+    let len = arr.length
+    for (let i = 0; i < len; i++) {
+      let cur = arr[i]
+      let j = i - 1
+      while (j >= 0 && arr[j] > cur) {
+        arr[j + 1] = arr[j--]
+      }
+      arr[j + 1] = cur
+    }
+  }
+
+  // insertionWithWhile(arr)
+  // console.log(arr)
+  function insertionWithFor (arr) {
+    let len = arr.length
+    for (let i = 0; i < len; i++) {
+      let cur = arr[i]
+      let index = i
+      for (let j = i - 1; j >= 0; j--) {
+        if (arr[j] > cur) {
+          arr[j + 1] = arr[j]
+          index = j
+        }
+        arr[index] = cur
+      }
+    }
+  }
+
+  // insertionWithFor(arr)
+  // console.log(arr)
+  function insertionWithSplice (arr) {
+    let len = arr.length
+    for (let i = 0; i < len; i++) {
+      let cur = arr[i]
+      let j = i - 1
+      while (j >= 0 && arr[j] > cur) j--
+      arr.splice(i, 1)
+      arr.splice(j+1, 0, cur)
+    }
+  }
+
+  insertionWithSplice(arr)
+  console.log(arr)
 </script>
 
 </html>
