@@ -89,7 +89,7 @@
   }
 
   // insertionWithWhile(arr)
-  // console.log(arr)
+
   function insertionWithFor (arr) {
     let len = arr.length
     for (let i = 0; i < len; i++) {
@@ -106,19 +106,59 @@
   }
 
   // insertionWithFor(arr)
-  // console.log(arr)
+
   function insertionWithSplice (arr) {
-    let len = arr.length
+
     for (let i = 0; i < len; i++) {
       let cur = arr[i]
       let j = i - 1
       while (j >= 0 && arr[j] > cur) j--
       arr.splice(i, 1)
-      arr.splice(j+1, 0, cur)
+      arr.splice(j + 1, 0, cur)
     }
   }
 
-  insertionWithSplice(arr)
+  // insertionWithSplice(arr)
+
+  // function dichotomyInsertion (arr) {
+  //   let len = arr.length
+  //   for (let i = 1; i < len; i++) {
+  //     let cur = arr[i]
+  //     let left = 0, right = i - 1
+  //     while (left <= right) {
+  //       let mid = ~~((left + right) / 2)
+  //       if (arr[mid] > cur) {
+  //         right = mid - 1
+  //       } else {
+  //         left = mid + 1
+  //       }
+  //     }
+  //     for (let j = i - 1; j >= left; j--) {
+  //       arr[j + 1] = arr[j]
+  //     }
+  //     arr[left] = cur
+  //   }
+  // }
+
+  function dichotomyInsertion (arr) {
+    let len = arr.length
+    for (let i = 1; i < len; i++) {
+      let left = 0, right = i - 1
+      let cur = arr[i]
+      while (left <= right) {
+        let mid = parseInt((left + right) / 2)
+        if (arr[mid] > cur) {
+          right = mid - 1
+        } else {
+          left = mid + 1
+        }
+      }
+      arr.splice(i, 1)
+      arr.splice(left, 0, cur)
+    }
+  }
+
+  dichotomyInsertion(arr)
   console.log(arr)
 </script>
 
