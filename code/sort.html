@@ -157,7 +157,29 @@
     }
   }
 
-  dichotomyInsertion(arr)
+  // dichotomyInsertion(arr)
+
+  function shell (arr) {
+    let h = 0  // 跨度
+    let length = arr.length
+    while (h <= length) {
+      h = 3 * h + 1
+    }
+    console.log("跨度:",h)
+    while (h >= 1) {
+      for(let i=h;i<length;i++){
+        let j = i - h
+        let cur = arr[i]
+        while (j >=0 && arr[j] > cur) {
+          arr[j+h] = arr[j]
+          j = j - h
+        }
+        arr[j+h] = cur
+      }
+      h = (h - 1) /3
+    }
+  }
+  shell(arr)
   console.log(arr)
 </script>
 
