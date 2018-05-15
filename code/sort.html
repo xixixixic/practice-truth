@@ -159,27 +159,70 @@
 
   // dichotomyInsertion(arr)
 
-  function shell (arr) {
-    let h = 0  // 跨度
-    let length = arr.length
-    while (h <= length) {
-      h = 3 * h + 1
-    }
-    console.log("跨度:",h)
-    while (h >= 1) {
-      for(let i=h;i<length;i++){
-        let j = i - h
-        let cur = arr[i]
-        while (j >=0 && arr[j] > cur) {
-          arr[j+h] = arr[j]
-          j = j - h
-        }
-        arr[j+h] = cur
+  // function shell (arr) {
+  //   let h = 0  // 跨度
+  //   let length = arr.length
+  //   while (h <= length) {
+  //     h = 3 * h + 1
+  //   }
+  //   console.log("跨度:",h)
+  //   while (h >= 1) {
+  //     for(let i=h;i<length;i++){
+  //       let j = i - h
+  //       let cur = arr[i]
+  //       while (j >=0 && arr[j] > cur) {
+  //         arr[j+h] = arr[j]
+  //         j = j - h
+  //       }
+  //       arr[j+h] = cur
+  //     }
+  //     h = (h - 1) /3
+  //   }
+  // }
+
+  // function shell (arr) {
+  //   let h = 0
+  //   let length = arr.length
+  //   while (h < length) {
+  //     h = h * 3 + 1
+  //   }
+  //   // h = 40
+  //   console.log(h)
+  //   while (h >= 1) {
+  //     for (let i = h; i < length; i++) {
+  //       let j = i - h  //0
+  //       let cur = arr[i]  // arr[13]
+  //       while (j >= 0 && arr[j] > cur) {
+  //         arr[j + h] = arr[j]
+  //         j -= h
+  //       }
+  //       arr[j + h] = cur
+  //     }
+  //     h = (h - 1) / 3     // 40没经过循环 --13-4-1-0
+  //   }
+  // }
+  //
+  // shell(arr)
+
+  function apart (arr,left,right) {
+    let pivot = arr[right]
+    let tail = arr[left - 1]
+    for(let i = left;i<right;i++){
+      if(arr[i] <= pivot) {
+        let idx = ++tail
+        let tmp = arr[idx]
+        arr[idx] = arr[i]
+        arr[i] = tmp
       }
-      h = (h - 1) /3
     }
+    let tmp = arr[tail +1]
+    arr[tail +1] = arr[right]
+    arr[right] = tmp
   }
-  shell(arr)
+
+  function quick () {
+
+  }
   console.log(arr)
 </script>
 
