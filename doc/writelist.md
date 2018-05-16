@@ -12,12 +12,20 @@
 
 1. <del>how to write a vue toast component with vue.extend</del>
 
+1. vuex is easy infact
+
 1. how to implete a simple vue
 
 1. how to implete a simple vue-router with History API or hash
 
 1. how to write a vue-pop-component to solve scroll-propagation-issue
 
-### node
+### js & node
 
-1. set a webpack configure file from zero.
+1. implete a promise
+
+1. star set a webpack configure file from zero.
+
+### git
+
+1. how to pull a pr   https://guides.github.com/activities/hello-world/
