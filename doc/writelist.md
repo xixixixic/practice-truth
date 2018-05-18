@@ -26,6 +26,4 @@
 
 1. star set a webpack configure file from zero.
 
-### git
-
-1. how to pull a pr   https://guides.github.com/activities/hello-world/
+1. write a webpack plugin
