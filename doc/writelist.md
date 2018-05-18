@@ -10,9 +10,9 @@
 
 ### vue
 
-1. <del>how to write a vue toast component with vue.extend</del>
+1. <del> how to write a vue toast component with vue.extend </del>
 
-1. vuex is easy infact
+1. <del> vuex is easy infact </del>
 
 1. how to implete a simple vue
 
@@ -22,7 +22,7 @@
 
 ### js & node
 
-1. implete a promise
+1. <del> implete a promise </del>
 
 1. star set a webpack configure file from zero.
 
