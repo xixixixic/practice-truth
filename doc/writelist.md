@@ -22,7 +22,7 @@
 
 ### js & node
 
-1. <del> implete a promise </del>
+1. <del> implete a promise </del> by 4 lines
 
 1. star set a webpack configure file from zero.
 
