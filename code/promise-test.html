@@ -12,9 +12,8 @@
 
 <script>
   function Pro (fn) {
-    var cb
-    this.then = callback => cb = callback
-    this.resolve = data => cb(data)
+    this.then = callback => this.cb = callback
+    this.resolve = data => this.cb(data)
     fn(this.resolve)
   }
 
