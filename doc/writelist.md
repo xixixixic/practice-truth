@@ -22,8 +22,13 @@
 
 ### js & node
 
-1. <del> implete a promise </del> by 4 lines
+1. implete a promise  by 4 lines
 
 1. star set a webpack configure file from zero.
+
+
+### git
+
+1. how to publish a npm-package
 
 1. write a webpack plugin
