@@ -15,7 +15,8 @@
   // http://www.cnblogs.com/eniac12/p/5329396.html
   // var arr = [5, 3, 1, 4]
   // var arr = [4,7,2,9,5,3,0,8,1,6]
-  var arr = [4, 435, 7, 2, 53, 68, 9, 50, 3, 0, 8, 1, 6, 5, 65, 29, 67, 60, 31]
+  //  var arr = [4, 435, 7, 2, 53, 68, 9, 50, 3, 0, 8, 1, 6, 5, 65, 29, 67, 60, 31]
+  var arr = [54, 76, 29, 23, 58, 43, 19, 38, 48, 34, 28, 38, 8, 64, 95]
 
   // 通用方法: 交换两个数据
   Array.prototype.swap = function (idx1, idx2) {
@@ -25,7 +26,7 @@
   }
 
   // 冒泡排序
-  function bubble (arr) {
+  function bubble(arr) {
     let len = arr.length
     for (let i = 0; i < len; i++) {
       for (let j = 0; j < len - 1 - i; j++) {
@@ -39,7 +40,7 @@
   // bubble(arr)
 
   // 鸡尾酒排序
-  function cocktail (arr) {
+  function cocktail(arr) {
     let left = 0, right = arr.length - 1
     while (left < right) {
       for (let i = left; i < right; i++) {
@@ -56,7 +57,7 @@
   // cocktail(arr)
 
   // 选择排序
-  function selection (arr) {
+  function selection(arr) {
     let len = arr.length
     for (let i = 0; i < len; i++) {
       let min = i
@@ -70,22 +71,34 @@
   // selection(arr)
 
   // 插入排序
-  function insertion (arr) {
+  //  function insertion (arr) {
+  //    let len = arr.length
+  //    for (let i = 0; i < len; i++) {
+  //      let cur = arr[i]
+  //      let j = i - 1
+  //      while (arr[j] > cur && j >= 0) j--
+  //      arr.splice(i, 1)
+  //      arr.splice(j + 1, 0, cur)
+  //    }
+  //  }
+
+  function insertion() {
     let len = arr.length
     for (let i = 0; i < len; i++) {
       let cur = arr[i]
       let j = i - 1
-      while (arr[j] > cur && j >= 0) j--
-      arr.splice(i, 1)
-      arr.splice(j + 1, 0, cur)
+      while (j >= 0 && arr[j] > cur) {
+        arr[j + 1] = arr[j--]
+      }
+      arr[++j] = cur
     }
   }
 
-  // insertion(arr)
+  //   insertion(arr)
 
 
   // 二分插入排序
-  function dichotomyInsertion (arr) {
+  function dichotomyInsertion(arr) {
     let len = arr.length
     for (let i = 0; i < len; i++) {
       let left = 0, right = i
@@ -105,71 +118,53 @@
 
   // dichotomyInsertion(arr)
 
-  // 希尔排序
-  // function shell (arr) {
-  //   let h = 0  // 跨度
-  //   let length = arr.length
-  //   while (h <= length) {
-  //     h = 3 * h + 1
-  //   }
-  //   console.log("跨度:",h)
-  //   while (h >= 1) {
-  //     for(let i=h;i<length;i++){
-  //       let j = i - h
-  //       let cur = arr[i]
-  //       while (j >=0 && arr[j] > cur) {
-  //         arr[j+h] = arr[j]
-  //         j = j - h
-  //       }
-  //       arr[j+h] = cur
-  //     }
-  //     h = (h - 1) /3
-  //   }
-  // }
 
-  // function shell (arr) {
-  //   let h = 0
-  //   let length = arr.length
-  //   while (h < length) {
-  //     h = h * 3 + 1
-  //   }
-  //   // h = 40
-  //   console.log(h)
-  //   while (h >= 1) {
-  //     for (let i = h; i < length; i++) {
-  //       let j = i - h  //0
-  //       let cur = arr[i]  // arr[13]
-  //       while (j >= 0 && arr[j] > cur) {
-  //         arr[j + h] = arr[j]
-  //         j -= h
-  //       }
-  //       arr[j + h] = cur
-  //     }
-  //     h = (h - 1) / 3     // 40没经过循环 --13-4-1-0
-  //   }
-  // }
-  //
-  // shell(arr)
+  function shellSort(arr) {
+    let len = arr.length
+    let span = 0
+    while (span < len) {
+      span = span * 3 + 1
+    }
+    while (span >= 0) {
+      for (let i = span; i < len; i++) {
+        let cur = arr[i]
+        let idx = i - span
+        while (arr[idx] > cur && idx >= 0) {
+          arr[idx + span] = arr[idx]
+          idx -= span
+        }
+        arr[idx + span] = cur
+      }
+      span = (span - 1) / 3
+    }
+  }
 
-  function apart (arr, left, right) {
-    let pivot = arr[right]
-    let tail = arr[left - 1]
+  shellSort(arr)
+
+  // 快排  分治函数
+  function partition(arr, left, right) {
+    let cur = arr[right]
+    let idx = left - 1
     for (let i = left; i < right; i++) {
-      if (arr[i] <= pivot) {
-        let idx = ++tail
-        let tmp = arr[idx]
-        arr[idx] = arr[i]
-        arr[i] = tmp
+      if (arr[i] <= cur) {
+        arr.swap(i, ++idx)
       }
     }
-    let tmp = arr[tail + 1]
-    arr[tail + 1] = arr[right]
-    arr[right] = tmp
+    arr.swap(++idx, right)
+    return idx
   }
 
-  function quick () {
-
+  // 快排 主函数
+  function quickSort(arr, left = 0, right = arr.length - 1) {
+    if (left < right) {
+      let idx = partition(arr, left, right)
+      quickSort(arr, left, idx - 1)
+      quickSort(arr, idx + 1, right)
+    }
   }
+
+  //  quickSort(arr)
+
 
   console.log(arr)
 </script>
