@@ -119,17 +119,35 @@
   // dichotomyInsertion(arr)
 
 
+  //  function shellSort(arr) {
+  //    let len = arr.length
+  //    let span = 0
+  //    while (span < len) {
+  //      span = span * 3 + 1
+  //    }
+  //    while (span >= 0) {
+  //      for (let i = span; i < len; i++) {
+  //        let cur = arr[i]
+  //        let idx = i - span
+  //        while (arr[idx] > cur && idx >= 0) {
+  //          arr[idx + span] = arr[idx]
+  //          idx -= span
+  //        }
+  //        arr[idx + span] = cur
+  //      }
+  //      span = (span - 1) / 3
+  //    }
+  //  }
+
   function shellSort(arr) {
     let len = arr.length
     let span = 0
-    while (span < len) {
-      span = span * 3 + 1
-    }
+    while (span < len) span = span * 3 + 1
     while (span >= 0) {
       for (let i = span; i < len; i++) {
         let cur = arr[i]
         let idx = i - span
-        while (arr[idx] > cur && idx >= 0) {
+        while (arr[idx] > cur && idx >=0) {
           arr[idx + span] = arr[idx]
           idx -= span
         }
