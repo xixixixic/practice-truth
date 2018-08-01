@@ -35,7 +35,13 @@ const config = {
     historyApiFallback: true,
     inline: true,
     port:8128,
-    contentBase: path.join(__dirname, "dist")
+    contentBase: path.join(__dirname, "dist"),
+    proxy: {
+      '/': {
+        target: 'http://dev.hxmec.com/',
+        changeOrigin: true,
+      },
+    }
   },
 
 }

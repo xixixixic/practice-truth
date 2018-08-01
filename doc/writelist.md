@@ -10,16 +10,15 @@
 
 ### vue
 
-1. how to implete a simple vue-router with History API or hash
-
-1. vue technology collection
-
 1. how to write a vue-pop-component to solve scroll-propagation-issue
+
+1. tab page and async component and code spliting
 
 ### js & node
 
 1. star set a webpack configure file from zero.
 
+1. canvas
 
 ### git
 
