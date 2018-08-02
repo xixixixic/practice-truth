@@ -160,28 +160,46 @@
   shellSort(arr)
 
   // 快排  分治函数
-  function partition(arr, left, right) {
+  // function partition(arr, left, right) {
+  //   let cur = arr[right]
+  //   let idx = left - 1
+  //   for (let i = left; i < right; i++) {
+  //     if (arr[i] <= cur) {
+  //       arr.swap(i, ++idx)
+  //     }
+  //   }
+  //   arr.swap(++idx, right)
+  //   return idx
+  // }
+  //
+  // // 快排 主函数
+  // function quickSort(arr, left = 0, right = arr.length - 1) {
+  //   if (left < right) {
+  //     let idx = partition(arr, left, right)
+  //     quickSort(arr, left, idx - 1)
+  //     quickSort(arr, idx + 1, right)
+  //   }
+  // }
+
+  function quickPartition (arr,left,right) {
     let cur = arr[right]
     let idx = left - 1
-    for (let i = left; i < right; i++) {
-      if (arr[i] <= cur) {
-        arr.swap(i, ++idx)
+    for( let i = left;i < right; i++) {
+      if(arr[i] <= cur) {
+        arr.swap(i,++idx)
       }
     }
-    arr.swap(++idx, right)
+    arr.swap(++idx,right)
     return idx
   }
-
-  // 快排 主函数
-  function quickSort(arr, left = 0, right = arr.length - 1) {
-    if (left < right) {
-      let idx = partition(arr, left, right)
-      quickSort(arr, left, idx - 1)
-      quickSort(arr, idx + 1, right)
+  function quickSort (arr,left = 0, right = arr.length - 1) {
+    if(left < right) {
+      let idx = quickPartition(arr,left,right)
+      quickSort(arr,left,idx -1)
+      quickSort(arr,idx+1,right)
     }
   }
-
-  //  quickSort(arr)
+   quickSort(arr)
 
 
   console.log(arr)
