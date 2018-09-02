@@ -75,32 +75,18 @@
 
   // selection(arr)
 
-  // 插入排序
-  //  function insertion (arr) {
-  //    let len = arr.length
-  //    for (let i = 0; i < len; i++) {
-  //      let cur = arr[i]
-  //      let j = i - 1
-  //      while (arr[j] > cur && j >= 0) j--
-  //      arr.splice(i, 1)
-  //      arr.splice(j + 1, 0, cur)
-  //    }
-  //  }
-
   // 循环数组，获取当前值。
   // 然后拿当前值跟当前值之前的值对比，如果比较大，就往前挪，一直挪到没有比较大为止
-  function insertion() {
-    let len = arr.length
-    for (let i = 0; i < len; i++) {
-      let cur = arr[i]
-      let j = i - 1
-      while (j >= 0 && arr[j] > cur) {
-        arr[j + 1] = arr[j--]
-      }
-      arr[++j] = cur
-    }
-  }
-
+  // function insertion(arr) {
+  //   let len = arr.length -1
+  //   for (let i = 0; i< len; i++) {
+  //     let j = i
+  //     while (j >= 0 && arr[j] < arr[j - 1])
+  //       arr.swap(j, --j)
+  //   }
+  //   console.log('insertion sort')
+  // }
+  //
   //   insertion(arr)
 
 
