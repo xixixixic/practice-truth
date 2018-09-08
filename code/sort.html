@@ -133,43 +133,45 @@
   //  }
 
   function shellSort(arr) {
-    let len = arr.length
-    let span = 0
-    while (span < len) span = span * 3 + 1
-    while (span >= 0) {
-      for (let i = span; i < len; i++) {
+    let len = arr.length - 1
+    let gap = 1
+    while (gap < len) gap = gap * 3 + 1
+    while (gap >= 0) {
+      for (let i = gap; i < len; i++) {
         let cur = arr[i]
-        let idx = i - span
-        while (arr[idx] > cur && idx >=0) {
-          arr[idx + span] = arr[idx]
-          idx -= span
+        let idx = i - gap
+        while (arr[idx] > cur && idx >= 0) {
+          arr[idx + gap] = arr[idx]
+          idx -= gap
         }
-        arr[idx + span] = cur
+        arr[idx + gap] = cur
       }
-      span = (span - 1) / 3
+      gap = (gap - 1) / 3
     }
+    console.log('shell sort')
   }
 
   shellSort(arr)
 
 
-  function quickPartition (arr, left, right) {
+  function quickPartition(arr, left, right) {
     let cur = arr[right]
     let idx = left - 1
-    for(let i = left; i< right; i++) {
+    for (let i = left; i < right; i++) {
       if (arr[i] <= cur) arr.swap(i, ++idx)
     }
     arr.swap(++idx, right)
     return idx
   }
 
-  function quickSort (arr, left = 0, right = arr.length - 1) {
+  function quickSort(arr, left = 0, right = arr.length - 1) {
     if (left >= right) return
     let idx = quickPartition(arr, left, right)
     quickSort(arr, left, idx - 1)
     quickSort(arr, idx + 1, right)
   }
-   // quickSort(arr)
+
+  // quickSort(arr)
 
 
   console.log(arr)
