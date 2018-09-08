@@ -111,33 +111,14 @@
 
   // dichotomyInsertion(arr)
 
-
-  //  function shellSort(arr) {
-  //    let len = arr.length
-  //    let span = 0
-  //    while (span < len) {
-  //      span = span * 3 + 1
-  //    }
-  //    while (span >= 0) {
-  //      for (let i = span; i < len; i++) {
-  //        let cur = arr[i]
-  //        let idx = i - span
-  //        while (arr[idx] > cur && idx >= 0) {
-  //          arr[idx + span] = arr[idx]
-  //          idx -= span
-  //        }
-  //        arr[idx + span] = cur
-  //      }
-  //      span = (span - 1) / 3
-  //    }
-  //  }
-
   function shellSort(arr) {
     let gap = 1
     let len = arr.length - 1
+    // 计算合适的区间
     while (gap < len) gap = gap * 3 + 1
     while(gap >= 0) {
       for(let i = gap; i < len; i++) {
+        // 这里执行插入排序(与普通插入排序不同的是，这里的插入区间不是1，是 gap)
         let cur = arr[i]
         let idx = i - gap
         while (arr[idx] > cur && idx >= 0) {
