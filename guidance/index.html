@@ -54,7 +54,7 @@
       color: #fff;
       font-size: 12px;
     }
-    .blur {
+    .halfTransparent {
       opacity: 0.15;
     }
     .darkBackGround {
@@ -124,7 +124,7 @@
 
   function showGuidance2() {
     let target = document.querySelector('.mid-center')
-    target.style.boxShadow = '0 0 0 2000px rgba(0, 0, 0, 0.85)'
+    target.style.boxShadow = '0 0 0 4000px rgba(0, 0, 0, 0.85)'
     target.style.position = 'relative'
   }
 
@@ -177,11 +177,11 @@
     for (let el of doms) {
     	if (!el.className.match(/mid-center/i) && el.children.length) {
 		    hasMatched = setOpticity(el)
-        if (!hasMatched) el.className += ' blur'
+        if (!hasMatched) el.className += ' halfTransparent'
       } else if(el.className.match(/mid-center/i)) {
 		    hasMatched = true
       } else {
-		    el.className += ' blur'
+		    el.className += ' halfTransparent'
       }
     }
     return hasMatched
@@ -191,7 +191,7 @@
   function unSetOpticity (element) {
 	  let doms = Array.from(element.children) || []
 	  for (let el of doms) {
-		  el.className = el.className.replace(/ blur/i, '')
+		  el.className = el.className.replace(/ halfTransparent/i, '')
 		  if (el.children.length) {
 			  unSetOpticity(el)
       }
